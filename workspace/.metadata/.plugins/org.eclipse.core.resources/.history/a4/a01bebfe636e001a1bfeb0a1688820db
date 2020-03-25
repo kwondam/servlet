@@ -1,0 +1,43 @@
+package test1;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class testServlet1
+ */
+@WebServlet("/add2")
+public class testServlet2 extends HttpServlet {
+	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = response.getWriter();
+		
+		
+		String fn_=request.getParameter("x");
+		String sn_=request.getParameter("y");
+		
+		int fn=0;
+		if(fn_!=null&&!fn_.equals("")) {
+			fn=Integer.parseInt(request.getParameter("x"));
+		}
+		
+		
+		int sn=0;
+		if(sn_!=null&&!fn_.equals("")) {
+			sn=Integer.parseInt(request.getParameter("y"));
+		}
+		
+		int result=fn*sn;
+		out.println("계산결과는");
+		out.println(result);
+		
+	}
+}
