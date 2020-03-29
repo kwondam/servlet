@@ -1,6 +1,8 @@
 package test1;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,6 +29,15 @@ public class Spag extends HttpServlet{
 			result="Â¦¼ö";
 		
 		request.setAttribute("result", result);
+		
+		String[] names = {"newlec", "dragon"};
+		request.setAttribute("names", names);
+		
+		Map<String, Object> notice = new HashMap<String, Object>();
+		
+		notice.put("id", 1);
+		notice.put("title", "EL¸¸¤¤¼¼");
+		request.setAttribute("noticce", notice);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("spag.jsp");
 		dispatcher.forward(request, response);
